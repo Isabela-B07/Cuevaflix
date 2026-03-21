@@ -1,0 +1,102 @@
+/* NAVBAR GENERAL */
+.navbar-custom {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  height: 70px; 
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* LOGO */
+.navbar-logo {
+  width: 200px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1);
+}
+
+
+/* LINKS */
+.custom-link {
+  color: #ffffff !important;
+  margin: 0 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER  */
+.navbar-nav .nav-link:not(.dropdown-toggle)::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00c3ff;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:not(.dropdown-toggle):hover::after {
+  width: 100%;
+}
+
+.custom-link:hover {
+  color: #00c3ff !important;
+}
+
+/* DROPDOWN */
+.custom-dropdown {
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}
+
+/* ITEMS DROPDOWN */
+.dropdown-item {
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 195, 255, 0.2);
+  color: #00c3ff;
+  transform: translateX(5px);
+}
+
+/* BOTÓN HAMBURGUESA */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* MENU RESPONSIVE */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .dropdown-menu {
+    text-align: center;
+  }
+}

@@ -1,4 +1,4 @@
-const { Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const GeneroSchema = Schema({
     nombre: {
@@ -8,25 +8,15 @@ const GeneroSchema = Schema({
         trim: true
     },
     estado: {
-        type: String,
-        required: true,
-        enum: ['Activo', 'Inactivo'],
-        default: 'Activo'
+        type: Boolean, // Mejor como Boolean para lógica de programación
+        default: true
     },
     descripcion: {
         type: String,
         trim: true
-    },
-    fechaCreacion: {
-        type: Date,
-        required: true,
-        default: Date.now
-    },
-    fechaActualizacion: {
-        type: Date,
-        required: true,
-        default: Date.now
     }
-})
+}, { 
+    timestamps: true // Esto crea automáticamente createdAt y updatedAt
+});
 
 module.exports = model('Genero', GeneroSchema);

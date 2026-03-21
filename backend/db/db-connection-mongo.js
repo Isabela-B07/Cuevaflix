@@ -2,14 +2,15 @@ const mongoose = require('mongoose');
 
 const getConnection = async () => {
     try {
-        const url = process.env.MONGO_URI;
+        // Asegúrate de que en tu archivo .env tengas la variable MONGO_URI
+        const url = process.env.MONGO_URI; 
+        
         await mongoose.connect(url);
-        console.log('✅ Conexión exitosa a MongoDB Atlas');
+
+        console.log('--- 🟢 Conexión a MongoDB exitosa ---');
     } catch (error) {
-        console.error('❌ Error al conectar a MongoDB:', error);
+        console.error('❌ Error de conexión a MongoDB:', error);
     }
 }
 
-module.exports = {
-    getConnection,
-}
+module.exports = { getConnection };

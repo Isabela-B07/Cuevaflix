@@ -1,0 +1,46 @@
+/* SCROLL HORIZONTAL */
+.scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 20px;
+  scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* CONTENEDOR */
+.poster-container {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+/* IMAGEN */
+.poster {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER */
+.poster-container:hover .poster {
+  transform: scale(1.12);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+  z-index: 2;
+}
+
+/* NÚMEROS de las tendencias */
+.poster-number {
+  position: absolute;
+  bottom: -15px;
+  left: -10px;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+  z-index: 1;
+}

@@ -1,42 +1,25 @@
 const { Schema, model } = require('mongoose');
 
 const ProductoraSchema = Schema({
-
     nombre: {
         type: String,
-        required: [true, 'El nombre de la productora es obligatorio'],
+        required: [true, 'El nombre es obligatorio'],
         trim: true
     },
-
     estado: {
-        type: String,
-        required: true,
-        enum: ['Activo', 'Inactivo'],
-        default: 'Activo'
+        type: Boolean,
+        default: true
     },
-
     slogan: {
         type: String,
         trim: true
     },
-
     descripcion: {
         type: String,
         trim: true
-    },
-
-    fechaCreacion: {
-        type: Date,
-        required: true,
-        default: Date.now
-    },
-
-    fechaActualizacion: {
-        type: Date,
-        required: true,
-        default: Date.now
     }
-
+}, { 
+    timestamps: true 
 });
 
 module.exports = model('Productora', ProductoraSchema);

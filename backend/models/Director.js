@@ -1,32 +1,17 @@
 const { Schema, model } = require('mongoose');
 
 const DirectorSchema = Schema({
-
     nombres: {
         type: String,
         required: [true, 'El nombre del director es obligatorio'],
         trim: true
     },
-
     estado: {
-        type: String,
-        required: true,
-        enum: ['Activo', 'Inactivo'],
-        default: 'Activo'
-    },
-
-    fechaCreacion: {
-        type: Date,
-        required: true,
-        default: Date.now
-    },
-
-    fechaActualizacion: {
-        type: Date,
-        required: true,
-        default: Date.now
+        type: Boolean, // Manejamos la lógica con true/false
+        default: true
     }
-
+}, { 
+    timestamps: true // Esto genera createdAt y updatedAt automáticamente
 });
 
 module.exports = model('Director', DirectorSchema);

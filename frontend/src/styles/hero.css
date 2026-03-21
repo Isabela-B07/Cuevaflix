@@ -1,0 +1,52 @@
+/* HERO GENERAL */
+.hero {
+  width: 100%;
+  height: 90vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    rgba(0, 0, 0, 0.85) 75%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+/* CONTENIDO */
+.hero-overlay {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* TÍTULO */
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* SUBTÍTULO */
+.hero-overlay p {
+  font-size: 1.2rem;
+  color: #ddd;
+}

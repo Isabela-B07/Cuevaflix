@@ -1,0 +1,7 @@
+/* FONDO GLOBAL */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* negro */
+  color: #fff; /* texto blanco por defecto */
+}

@@ -1,75 +1,51 @@
 const Genero = require('../models/Genero');
-const { request, response} = require('express');
+const { request, response } = require('express');
 
 const getGeneros = async (req = request, res = response) => {
-    try{
+    try {
         const generos = await Genero.find();
         res.status(200).json(generos);
     } catch (error) {
         console.error('❌ Error al obtener géneros:', error);
-        res.status(500).json({msg: 'Ocurrió un error al listar los géneros'});
+        res.status(500).json({ msg: 'Ocurrió un error al listar los géneros' });
     }
 }
 
 const createGenero = async (req = request, res = response) => {
     try {
-        const { nombre, descripcion} = req.body;
-
-        const generoDB = await Genero.findOne({nombre});
-        if(generoDB) {
-            return res.status(400).json({ msg: `El género "${nombre}" ya existe.`});
+        const { nombre, descripcion } = req.body;
+        const generoDB = await Genero.findOne({ nombre });
+        if (generoDB) {
+            return res.status(400).json({ msg: `El género "${nombre}" ya existe.` });
         }
-
-        const genero = new Genero({ nombre, descripcion});
-
+        const genero = new Genero({ nombre, descripcion });
         await genero.save();
         res.status(201).json(genero);
-
-    }catch (error) {
+    } catch (error) {
         console.error('❌ Error al crear género', error);
-        res.status(500).json({ msg: 'Ocurrió un error al guardar el género'});
-    }   
+        res.status(500).json({ msg: 'Ocurrió un error al guardar el género' });
+    }
 }
 
-//Función para editar un género existente.
 const updateGenero = async (req = request, res = response) => {
     try {
-
         const { id } = req.params;
         const { nombre, descripcion, estado } = req.body;
 
         const genero = await Genero.findByIdAndUpdate(
             id,
-            {
-                nombre,
-                descripcion,
-                estado,
-                fechaActualizacion: Date.now()
-            },
+            { nombre, descripcion, estado }, // Mongoose actualiza updatedAt automáticamente
             { new: true }
         );
 
         if (!genero) {
-            return res.status(404).json({
-                msg: 'Género no encontrado'
-            });
+            return res.status(404).json({ msg: 'Género no encontrado' });
         }
-
         res.status(200).json(genero);
-
     } catch (error) {
-
         console.error('❌ Error al actualizar género:', error);
-
-        res.status(500).json({
-            msg: 'Ocurrió un error al actualizar el género'
-        });
-
+        res.status(500).json({ msg: 'Ocurrió un error al actualizar el género' });
     }
 };
 
-module.exports = {
-    getGeneros,
-    createGenero,
-    updateGenero
-};
+module.exports = { getGeneros, createGenero, updateGenero };

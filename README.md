@@ -243,4 +243,4 @@ Actualmente el sistema se encuentra preparado para integrarse con un **Frontend*
 
 Proyecto desarrollado como actividad académica para la asignatura **Ingeniería Web II**.
 
-Estudiantes: **Isabela Blandón** **Salomé Molina Reyes** **Angela Alean Acuña**
+Estudiantes: **Isabela Blandón**, **Salomé Molina Reyes**, **Angela Alean Acuña**
