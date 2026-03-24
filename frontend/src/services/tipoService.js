@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/tipo";
-
+const API_URL = "https://cuevaflix-backend.onrender.com/api/tipo";
 // Obtener tipos
 export const getTipos = async () => {
   try {

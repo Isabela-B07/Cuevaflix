@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/media";
-
+const API_URL = "https://cuevaflix-backend.onrender.com/api/media";
 export const getMedias = async () => {
   try {
     const response = await axios.get(API_URL);

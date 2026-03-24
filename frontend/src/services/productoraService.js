@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/productora";
-
+const API_URL = "https://cuevaflix-backend.onrender.com/api/productora";
 // Obtener productoras
 export const getProductoras = async () => {
   try {
